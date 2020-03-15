@@ -20,6 +20,7 @@ class CountryRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var name = country.name;
     return Padding(
         padding: const EdgeInsets.fromLTRB(5.0, 0.0, 0.0, 0.0),
         child: Row(
@@ -30,70 +31,9 @@ class CountryRow extends StatelessWidget {
               child: Image.asset("assets/images/flags/china.png"),
             ),
             Expanded(
-                flex: 9,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Text(
-                      country.name,
-                      style: _biggerFont,
-                    ),
-                    Expanded(
-                        flex: 1,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    country.todayCases.toString(),
-                                    style: _smallerFont,
-                                  ),
-                                  Text(
-                                    country.cases.toString(),
-                                    style: _biggerFont,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    country.todayCases.toString(),
-                                    style: _smallerFont,
-                                  ),
-                                  Text(
-                                    country.cases.toString(),
-                                    style: _biggerFont,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    country.todayCases.toString(),
-                                    style: _smallerFont,
-                                  ),
-                                  Text(
-                                    country.cases.toString(),
-                                    style: _biggerFont,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ))
-                  ],
-                )),
+              flex: 9,
+              child: name,
+            )
           ],
         ));
   }
