@@ -10,7 +10,7 @@ class CountryRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-        leading: const Icon(Icons.flight_land),
+        leading: Image.asset("assets/images/flags/china.png"),
         title: Text(
           country.toString(),
           style: _biggerFont,
