@@ -91,11 +91,12 @@ class CountryRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(
-        country.toString(),
-        style: _biggerFont,
-      ),
-    );
+        leading: const Icon(Icons.flight_land),
+        title: Text(
+          country.toString(),
+          style: _biggerFont,
+        ),
+        onTap: () => print("Tapped ${country.name}"));
   }
 }
 
