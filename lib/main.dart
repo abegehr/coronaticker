@@ -72,17 +72,17 @@ class CountriesListState extends State<CountriesList> {
     return ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, i) {
-          if (i < data) {
+          if (i < data.length) {
             return _buildRow(data[i]);
           }
           return null;
         });
   }
 
-  Widget _buildRow(countryEntry) {
+  Widget _buildRow(Country country) {
     return ListTile(
       title: Text(
-        countryEntry,
+        country.toString(),
         style: _biggerFont,
       ),
     );
@@ -110,7 +110,7 @@ class Country {
 
   factory Country.fromJson(Map<String, dynamic> json) {
     return Country(
-      name: json['name'],
+      name: json['country'],
       cases: json['cases'],
       todayCases: json['todayCases'],
       deaths: json['deaths'],
@@ -119,4 +119,17 @@ class Country {
       critical: json['critical'],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'country': name,
+        'cases': cases,
+        'todayCases': todayCases,
+        'deaths': deaths,
+        'todayDeaths': todayDeaths,
+        'recovered': recovered,
+        'critical': critical,
+      };
+
+  @override
+  String toString() => json.encode(toJson());
 }
