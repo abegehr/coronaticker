@@ -39,8 +39,6 @@ class CountriesList extends StatefulWidget {
 }
 
 class CountriesListState extends State<CountriesList> {
-  final _biggerFont = const TextStyle(fontSize: 18.0);
-
   Future<List<Country>> fetchData() async {
     final response = await http.get('https://corona.lmao.ninja/countries');
 
@@ -80,6 +78,18 @@ class CountriesListState extends State<CountriesList> {
   }
 
   Widget _buildRow(Country country) {
+    return CountryRow(country: country);
+  }
+}
+
+class CountryRow extends StatelessWidget {
+  final _biggerFont = const TextStyle(fontSize: 18.0);
+  final Country country;
+
+  CountryRow({Key key, this.country}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return ListTile(
       title: Text(
         country.toString(),
