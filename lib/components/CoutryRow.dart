@@ -9,12 +9,50 @@ class CountryRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-        leading: Image.asset("assets/images/flags/china.png"),
-        title: Text(
-          country.toString(),
-          style: _biggerFont,
-        ),
-        onTap: () => print("Tapped ${country.name}"));
+    return Row(children: <Widget>[
+      Image.asset("assets/images/flags/china.png", width: 60, height: 48),
+      Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                country.name.toString(),
+                style: _biggerFont,
+              ),
+              Row(
+                children: <Widget>[
+                  Text('new Cases today'),
+                  Text(
+                    country.todayCases.toString(),
+                  )
+                ],
+              )
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Text('C'),
+                  Text(country.cases.toString()),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Text('D'),
+                  Text(country.deaths.toString()),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Text('R'),
+                  Text(country.recovered.toString()),
+                ],
+              )
+            ],
+          ),
+        ],
+      )
+    ]);
   }
 }
