@@ -9,50 +9,83 @@ class CountryRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
-      Image.asset("assets/images/flags/china.png", width: 60, height: 48),
-      Column(
-        children: <Widget>[
-          Row(
+    return Container(
+      height: 72,
+      child: Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
+        Expanded(
+            flex: 1,
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: Image.asset("assets/images/flags/china.png",
+                  width: 60, height: 48),
+            )),
+        Expanded(
+          flex: 4,
+          child: Column(
             children: <Widget>[
-              Text(
-                country.name.toString(),
-                style: _biggerFont,
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Text(
+                      country.name.toString(),
+                      style: _biggerFont,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text('new Cases today:'),
+                        Text(
+                          country.todayCases.toString(),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
-              Row(
-                children: <Widget>[
-                  Text('new Cases today'),
-                  Text(
-                    country.todayCases.toString(),
-                  )
-                ],
-              )
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      width: 72,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text('C'),
+                          Text(country.cases.toString()),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 72,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text('D'),
+                          Text(country.deaths.toString()),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 72,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text('R'),
+                          Text(country.recovered.toString()),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
-          Row(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Text('C'),
-                  Text(country.cases.toString()),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text('D'),
-                  Text(country.deaths.toString()),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Text('R'),
-                  Text(country.recovered.toString()),
-                ],
-              )
-            ],
-          ),
-        ],
-      )
-    ]);
+        ),
+      ]),
+    );
   }
 }
