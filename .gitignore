@@ -1,3 +1,5 @@
+### Flutter ###
+
 # Miscellaneous
 *.class
 *.log
@@ -35,3 +37,13 @@ lib/generated_plugin_registrant.dart
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+
+### manual ###
+
+# Android release signing
+/android/key.properties
+
+# Firebase config
+/android/app/google-services.json
+/ios/Runner/GoogleService-Info.plist
