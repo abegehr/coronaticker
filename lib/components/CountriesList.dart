@@ -11,7 +11,8 @@ class CountriesList extends StatefulWidget {
 
 class CountriesListState extends State<CountriesList> {
   Future<List<Country>> fetchData() async {
-    final response = await http.get('https://corona.lmao.ninja/countries');
+    final response =
+        await http.get('https://corona.lmao.ninja/countries?sort=cases');
 
     print(response);
 
