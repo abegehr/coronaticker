@@ -16,7 +16,7 @@ class CountryRow extends StatelessWidget {
             flex: 1,
             child: Container(
               alignment: Alignment.centerLeft,
-              child: Image.asset("assets/images/flags/china.png",
+              child: Image.network(country.countryInfo.flag,
                   width: 60, height: 48),
             )),
         Expanded(
