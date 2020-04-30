@@ -1,11 +1,63 @@
 import 'dart:convert';
 
+class CountryInfo {
+  final int id;
+  final String iso2;
+  final String iso3;
+  final double lat;
+  final double long;
+  final String flag;
+
+  CountryInfo({
+    this.id,
+    this.iso2,
+    this.iso3,
+    this.lat,
+    this.long,
+    this.flag,
+  });
+
+  factory CountryInfo.fromJson(Map<String, dynamic> json) {
+    /*
+    // Example json data:
+      {
+        "_id":840,
+        "iso2":"US",
+        "iso3":"USA",
+        "lat":38,
+        "long":-97,
+        "flag":"https://corona.lmao.ninja/assets/img/flags/us.png"
+      }
+    */
+    return CountryInfo(
+      id: json["_id"],
+      iso2: json["iso2"],
+      iso3: json["iso3"],
+      lat: json["lat"],
+      long: json["long"],
+      flag: json["flag"],
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        '_id': id,
+        'iso2': iso2,
+        'iso3': iso3,
+        'lat': lat,
+        'long': long,
+        'flag': flag,
+      };
+
+  @override
+  String toString() => json.encode(toJson());
+}
+
 class Country {
   final int updated;
   // meta data
   final String name;
   final String continent;
-  final Map<String, dynamic> countryInfo;
+  final CountryInfo countryInfo;
   // corona data
   final int cases;
   final int todayCases;
@@ -72,14 +124,7 @@ class Country {
       // meta data
       name: json['country'],
       continent: json["continent"],
-      countryInfo: {
-        "_id": json['countryInfo']["_id"],
-        "iso2": json['countryInfo']["iso2"],
-        "iso3": json['countryInfo']["iso3"],
-        "lat": json['countryInfo']["lat"],
-        "long": json['countryInfo']["long"],
-        "flag": json['countryInfo']["flag"],
-      },
+      countryInfo: CountryInfo.fromJson(json["countryInfo"]),
       // corona data
       cases: json['cases'],
       todayCases: json['todayCases'],
@@ -96,13 +141,23 @@ class Country {
   }
 
   Map<String, dynamic> toJson() => {
+        'updated': updated,
+        // meta data
         'country': name,
+        'continent': continent,
+        'countryInfo': countryInfo.toJson(),
+        // corona data
         'cases': cases,
         'todayCases': todayCases,
         'deaths': deaths,
         'todayDeaths': todayDeaths,
         'recovered': recovered,
+        'active': active,
         'critical': critical,
+        'casesPerOneMillion': casesPerOneMillion,
+        'deathsPerOneMillion': deathsPerOneMillion,
+        'tests': tests,
+        'testsPerOneMillion': testsPerOneMillion,
       };
 
   @override
