@@ -1,22 +1,41 @@
 import 'dart:convert';
 
 class Country {
+  final int updated;
+  // meta data
   final String name;
+  final String continent;
+  final Map<String, dynamic> countryInfo;
+  // corona data
   final int cases;
   final int todayCases;
   final int deaths;
   final int todayDeaths;
   final int recovered;
+  final int active;
   final int critical;
+  final int casesPerOneMillion;
+  final int deathsPerOneMillion;
+  final int tests;
+  final int testsPerOneMillion;
 
-  Country(
-      {this.name,
-      this.cases,
-      this.todayCases,
-      this.deaths,
-      this.todayDeaths,
-      this.recovered,
-      this.critical});
+  Country({
+    this.updated,
+    this.name,
+    this.continent,
+    this.countryInfo,
+    this.cases,
+    this.todayCases,
+    this.deaths,
+    this.todayDeaths,
+    this.recovered,
+    this.active,
+    this.critical,
+    this.casesPerOneMillion,
+    this.deathsPerOneMillion,
+    this.tests,
+    this.testsPerOneMillion,
+  });
 
   factory Country.fromJson(Map<String, dynamic> json) {
     /*
@@ -49,13 +68,30 @@ class Country {
     */
 
     return Country(
+      updated: json["updated"],
+      // meta data
       name: json['country'],
+      continent: json["continent"],
+      countryInfo: {
+        "_id": json['countryInfo']["_id"],
+        "iso2": json['countryInfo']["iso2"],
+        "iso3": json['countryInfo']["iso3"],
+        "lat": json['countryInfo']["lat"],
+        "long": json['countryInfo']["long"],
+        "flag": json['countryInfo']["flag"],
+      },
+      // corona data
       cases: json['cases'],
       todayCases: json['todayCases'],
       deaths: json['deaths'],
       todayDeaths: json['todayDeaths'],
       recovered: json['recovered'],
+      active: json['active'],
       critical: json['critical'],
+      casesPerOneMillion: json['casesPerOneMillion'],
+      deathsPerOneMillion: json["deathsPerOneMillion"],
+      tests: json["tests"],
+      testsPerOneMillion: json["testsPerOneMillion"],
     );
   }
 
