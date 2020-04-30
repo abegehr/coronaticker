@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 class Country {
-  // {"country":"China","cases":80849,"todayCases":25,"deaths":3199,"todayDeaths":10,"recovered":66915,"critical":3226}
   final String name;
   final int cases;
   final int todayCases;
@@ -20,6 +19,35 @@ class Country {
       this.critical});
 
   factory Country.fromJson(Map<String, dynamic> json) {
+    // Example json data:
+    /*
+      {
+        "updated":1588239096243,
+        "country":"USA",
+        "countryInfo":
+        {
+          "_id":840,
+          "iso2":"US",
+          "iso3":"USA",
+          "lat":38,
+          "long":-97,
+          "flag":"https://corona.lmao.ninja/assets/img/flags/us.png"
+        },
+        "cases":1064572,
+        "todayCases":378,
+        "deaths":61669,
+        "todayDeaths":13,
+        "recovered":147411,
+        "active":855492,
+        "critical":18671,
+        "casesPerOneMillion":3216,
+        "deathsPerOneMillion":186,
+        "tests":6139911,
+        "testsPerOneMillion":18549,
+        "continent":"North America"
+      }
+    */
+
     return Country(
       name: json['country'],
       cases: json['cases'],
