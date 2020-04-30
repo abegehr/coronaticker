@@ -19,8 +19,8 @@ class Country {
       this.critical});
 
   factory Country.fromJson(Map<String, dynamic> json) {
-    // Example json data:
     /*
+    // Example json data:
       {
         "updated":1588239096243,
         "country":"USA",
