@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-title" content="coronaticker" />
     <link rel="apple-touch-icon" href="/icons/Icon-192.png" />
 
-    <title>coronaticker</title>
+    <title>CoronaTicker</title>
     <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
@@ -30,7 +30,7 @@
         storageBucket: "coronaticker-7e6ce.appspot.com",
         messagingSenderId: "451411718103",
         appId: "1:451411718103:web:c2962fd6484c38b675a592",
-        measurementId: "G-MPWJ9TLBLX"
+        measurementId: "G-MPWJ9TLBLX",
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
@@ -43,7 +43,7 @@
        https://developers.google.com/web/fundamentals/primers/service-workers -->
     <script>
       if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function() {
+        window.addEventListener("load", function () {
           navigator.serviceWorker.register("/flutter_service_worker.js");
         });
       }
