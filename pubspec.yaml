@@ -1,5 +1,5 @@
 name: coronaticker
-description: A new Flutter project.
+description: CoronaTicker.live shows current numbers of infected, deceased, and recovered COVID19 cases by country.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -20,11 +20,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  http: ^0.12.0
+  url_launcher: ^5.4.5
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-
-  http: ^0.12.0
 
   # Firebase
   firebase_core: ^0.4.4

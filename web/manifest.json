@@ -1,23 +1,23 @@
 {
-    "name": "coronaticker",
-    "short_name": "coronaticker",
-    "start_url": ".",
-    "display": "minimal-ui",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "name": "CoronaTicker",
+  "short_name": "CoronaTicker",
+  "start_url": ".",
+  "display": "minimal-ui",
+  "background_color": "#0175C2",
+  "theme_color": "#0175C2",
+  "description": "CoronaTicker.live shows current numbers of infected, deceased, and recovered COVID19 cases by country.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
